@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Homepage</title>
+</head>
+<body>
+<h1>Title</h1>
+<p>hello!</p>
+<p th:text="'The current time is: ' + ${currenttime}" />
+</body>
+<form action="/polls/" method="POST">
+    <label>Question: <input type="text" name="question" /></label>
+    <input type="submit">
+</form>
+
+<table border="1">
+    <tr>
+        <th>Question</th>
+        <td>Votes</td>
+        <td>Upvotes</td>
+        <td>Downvotes</td>
+    </tr>
+    <tr th:each="question : ${question}">
+        <td th:text="${question.question}"></td>
+        <td th:text="${question.votes}"></td>
+        <td>
+            <a th:href="'/polls/' + ${question.id} + '/upvote'">Upvote</a>
+        </td>
+        <td>
+            <a th:href="'/polls/' + ${question.id} + '/downvote'">Downvote</a>
+        </td>
+    </tr>
+</table>
+
+</html>
