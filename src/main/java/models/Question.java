@@ -16,7 +16,7 @@ public class Question implements Comparable<Question>{
     public String question;
     public int votes;
 
-    // Requires default contstructor
+    // Requires default constructor
     public Question(){}
 
     public Question(String question){
@@ -24,9 +24,6 @@ public class Question implements Comparable<Question>{
     }
 
     @Override
-    // return -1 if this is less than the other one
-    // return 0 if these two things are equal
-    // return 1 if this is greater than the other one
     public int compareTo(Question o) {
         return o.votes - this.votes;
     }
